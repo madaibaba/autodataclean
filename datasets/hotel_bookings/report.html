@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>数据清洗可视化报告</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+        .chart-container {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2>数据质量对比报告</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>指标</th>
+                    <th>清洗前</th>
+                    <th>清洗后</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>rows</td>
+                    <td>99</td>
+                    <td>13</td>
+                </tr>
+                
+                <tr>
+                    <td>columns</td>
+                    <td>32</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>missing_values</td>
+                    <td>110</td>
+                    <td>0</td>
+                </tr>
+                
+                <tr>
+                    <td>duplicate_rows</td>
+                    <td>3</td>
+                    <td>0</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+    </div>
+    <h1>数据清洗可视化报告</h1>
+    <div class="chart-container">
+        <h2>数值特征直方图</h2>
+        <iframe src=".\report\histogram.html"></iframe>
+    </div>
+    <div class="chart-container">
+        <h2>相关性热力图</h2>
+        <iframe src=".\report\heatmap.html"></iframe>
+    </div>
+    <div class="chart-container">
+        <h2>数值特征箱线图</h2>
+        <iframe src=".\report\boxplot.html"></iframe>
+    </div>
+    <div class="chart-container">
+        <h2>分类变量柱状图</h2>
+        <iframe src=".\report\bar_chart.html"></iframe>
+    </div>
+</body>
+</html>
+    
