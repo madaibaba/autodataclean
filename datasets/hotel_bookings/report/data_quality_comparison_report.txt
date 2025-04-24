@@ -1,0 +1,13 @@
+数据质量对比报告
+==============================
+清洗前数据质量指标:
+rows: 99
+columns: 32
+missing_values: 110
+duplicate_rows: 3
+
+清洗后数据质量指标:
+rows: 13
+columns: 5
+missing_values: 0
+duplicate_rows: 0
