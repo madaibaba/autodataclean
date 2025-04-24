@@ -1,0 +1,46 @@
+{
+    "input_path": "hotel_bookings.csv",
+    "output_path": "hotel_bookings",
+    "output_format": "csv",
+    "generate_reports": true,
+    "duplicates": {
+        "remove": true
+    },
+    "outliers": {
+        "method": "zscore",
+        "columns": ["lead_time", "adr"]
+    },
+    "text_cleaning": {
+        "columns": ["reservation_status"]
+    },
+    "missing_value": {
+        "children": {"method": "fill", "value": 0},
+        "agent": {"method": "fill", "value": "No Agent"},
+        "company": {"method": "fill", "value": "No Company"}
+    },
+    "dtype_conversion": {
+        "reservation_status_date": "timestamp",
+        "arrival_date_month": "category",
+        "hotel": "category",
+        "meal": "category",
+        "market_segment": "category",
+        "distribution_channel": "category",
+        "reserved_room_type": "category",
+        "assigned_room_type": "category",
+        "deposit_type": "category",
+        "customer_type": "category",
+        "reservation_status": "category"
+    },
+    "feature_scaling": {
+        "method": "standard",
+        "columns": ["lead_time", "adr"]
+    },
+    "aggregation": {
+        "group_by": "country",
+        "agg_dict": {
+            "adr": ["mean", "max"],
+            "lead_time": ["median"],
+            "total_of_special_requests": "sum"
+        }
+    }
+}
