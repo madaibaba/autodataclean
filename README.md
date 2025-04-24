@@ -20,6 +20,8 @@ pip install autodataclean
 
 ## ⚙️ 使用示例
 
+### ✅ 方法 1：使用 Python API 调用
+
 ```python
 from autodataclean import DataProcessingPipeline
 
@@ -28,6 +30,25 @@ config_path = 'configs/hotel_bookings.json'
 pipeline = DataProcessingPipeline(config_path)
 pipeline.run()
 ```
+
+### ✅ 方法 2：使用命令行工具（推荐）
+
+#### 1. 自动生成 JSON 配置文件并进行清洗
+```bash
+autodataclean --dataset=datasets/hotel_bookings.csv \
+              --api_url "http://192.168.200.54:11434/api/generate" \
+              --model_name "deepseek-coder:33b"
+```
+
+此命令将调用大模型自动生成配置文件（如 `auto_hotel_bookings.json`），并立即执行数据清洗。
+
+#### 2. 使用已有配置文件进行数据清洗
+```bash
+autodataclean --config=auto_hotel_bookings.json
+```
+
+此命令使用已有 JSON 配置文件执行清洗流程，适合生产环境或手动微调的配置文件。
+
 
 ## 📝 配置文件说明
 
